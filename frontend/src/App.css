@@ -1,184 +1,812 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+* {
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #ffffff;
+
+  color: #101828;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 78px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 6%;
+
+  border-bottom: 1px solid #eaecf0;
+
+  background: #ffffff;
+}
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  min-width: 230px;
+}
+
+.brand-logo {
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #146ef5;
+
+  color: white;
+
+  font-size: 22px;
+}
+
+nav {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 36px;
+
+  flex: 1;
+}
+
+nav span {
+  font-size: 14px;
+
+  color: #667085;
+
+  cursor: default;
+}
+
+nav span.active {
+  color: #146ef5;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
-  position: relative;
+  max-width: 1400px;
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
+  margin: auto;
 
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
+  display: grid;
 
-  .framework,
-  .vite {
-    position: absolute;
-  }
+  grid-template-columns:
+    0.75fr
+    1.25fr;
 
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
+  gap: 70px;
 
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  align-items: center;
+
+  padding: 80px 6%;
 }
 
-#center {
+.hero-content {
+  max-width: 520px;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  border-radius: 7px;
+
+  background: #eff6ff;
+
+  color: #146ef5;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 5vw, 70px);
+
+  line-height: 1.03;
+
+  letter-spacing: -3px;
+
+  color: #101828;
+}
+
+.hero p {
+  margin-top: 25px;
+
+  max-width: 480px;
+
+  color: #667085;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ARCHITECTURE CARD
+========================= */
+
+.architecture-card {
+  padding: 32px;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 30px rgba(16, 24, 40, 0.05);
+
+  min-height: 355px;
+}
+
+.architecture-header {
   display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 32px;
+}
+
+.architecture-header h2 {
+  margin: 0;
+
+  font-size: 21px;
+
+  letter-spacing: -0.4px;
+}
+
+
+/* =========================
+   AWS BRAND
+========================= */
+
+.aws-brand {
+  display: flex;
+
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
 
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 125px;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
+.aws-brand img {
+  width: 115px;
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
+  height: 70px;
 
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  object-fit: contain;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
+.aws-brand span {
+  margin-top: -2px;
 
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+  color: #667085;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
+
+/* =========================
+   ARCHITECTURE FLOW
+========================= */
+
+.architecture-flow {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    35px
+    1fr
+    35px
+    1fr;
+
+  align-items: center;
+
   gap: 8px;
-  margin: 32px 0 0;
+}
 
-  .logo {
-    height: 18px;
+.tier-card {
+  min-height: 190px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 11px;
+
+  border: 1px solid #e4e7ec;
+
+  text-align: center;
+}
+
+.frontend-tier {
+  background: #f5f9ff;
+}
+
+.backend-tier {
+  background: #f5fbf7;
+}
+
+.database-tier {
+  background: #faf7ff;
+}
+
+.tier-label {
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  color: #667085;
+
+  margin-bottom: 18px;
+}
+
+.tech-logo {
+  width: 64px;
+
+  height: 64px;
+
+  object-fit: contain;
+
+  margin-bottom: 15px;
+}
+
+.react-logo {
+  width: 68px;
+
+  height: 68px;
+}
+
+.tier-card h3 {
+  margin: 0;
+
+  font-size: 15px;
+}
+
+.tier-card p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+
+  color: #667085;
+}
+
+.flow-arrow {
+  text-align: center;
+
+  color: #98a2b3;
+
+  font-size: 24px;
+}
+
+
+/* =========================
+   FEATURES SECTION
+========================= */
+
+.features-section {
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 50px 6% 90px;
+
+  border-top: 1px solid #eaecf0;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 20px;
+
+  letter-spacing: -0.4px;
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.feature-card {
+  min-height: 180px;
+
+  padding: 24px;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+}
+
+.feature-card h3 {
+  margin: 15px 0 8px;
+
+  font-size: 15px;
+}
+
+.feature-card p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================
+   FEATURE ICONS
+========================= */
+
+.feature-icon {
+  width: 38px;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #eff6ff;
+
+  color: #146ef5;
+
+  font-size: 19px;
+
+  font-weight: 600;
+}
+
+.code-icon {
+  font-size: 16px;
+}
+
+.feature-logo {
+  width: 40px;
+
+  height: 40px;
+
+  object-fit: contain;
+}
+
+.aws-feature-logo {
+  width: 58px;
+
+  height: 42px;
+}
+
+
+/* =========================
+   PROJECT OVERVIEW
+========================= */
+
+.overview {
+  margin-top: 25px;
+
+  padding: 30px;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+.overview-text {
+  max-width: 440px;
+}
+
+.overview-text h2 {
+  margin: 0 0 10px;
+
+  font-size: 22px;
+
+  letter-spacing: -0.5px;
+}
+
+.overview-text p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================
+   CI/CD PIPELINE
+========================= */
+
+.pipeline {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.pipeline-item {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  min-width: 65px;
+}
+
+.pipeline-icon {
+  width: 45px;
+
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 8px;
+}
+
+.pipeline-icon img {
+  width: 38px;
+
+  height: 38px;
+
+  object-fit: contain;
+}
+
+.pipeline-item strong {
+  font-size: 11px;
+}
+
+.pipeline-item span {
+  margin-top: 3px;
+
+  color: #98a2b3;
+
+  font-size: 9px;
+
+  letter-spacing: 0.4px;
+}
+
+.pipeline-arrow {
+  color: #98a2b3;
+
+  font-size: 19px;
+}
+
+
+/* =========================
+   TECHNOLOGIES
+========================= */
+
+.technologies {
+  margin-top: 70px;
+}
+
+.technology-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, 1fr);
+
+  gap: 14px;
+}
+
+.technology {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+}
+
+.technology img {
+  width: 32px;
+
+  height: 32px;
+
+  object-fit: contain;
+}
+
+.technology strong {
+  display: block;
+
+  font-size: 12px;
+}
+
+.technology span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid #eaecf0;
+
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 40px 6% 25px;
+}
+
+.footer-main {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+.footer-brand p {
+  max-width: 300px;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.footer-stack {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  color: #667085;
+
+  font-size: 11px;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #eaecf0;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    grid-template-columns: 1fr;
   }
 
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .technology-list {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .overview {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+
+
+@media (max-width: 750px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 50px 20px;
+
+    gap: 35px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+
+    letter-spacing: -2px;
+  }
+
+  .architecture-card {
+    padding: 20px;
+
+    min-height: auto;
+  }
+
+  .architecture-header {
+    margin-bottom: 25px;
+  }
+
+  .aws-brand img {
+    width: 90px;
+
+    height: 55px;
+  }
+
+  .architecture-flow {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-list {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .features-section {
+    padding: 45px 20px 70px;
+  }
+
+  .pipeline {
+    width: 100%;
+
+    justify-content: space-between;
+
     gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
   }
 
-  @media (max-width: 1024px) {
-    margin-top: 20px;
+  .pipeline-arrow {
+    font-size: 15px;
+  }
+
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-stack {
     flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 8px;
   }
 }
